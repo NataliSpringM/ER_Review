@@ -1,0 +1,9 @@
+/Users/natalia/Projects/9_Filmorate/java-filmorate/src/main/java/ru/yandex/practicum/filmorate/controllers/UserController.java
+/Users/natalia/Projects/9_Filmorate/java-filmorate/src/main/java/ru/yandex/practicum/filmorate/annotations/CheckReleaseDate.java
+/Users/natalia/Projects/9_Filmorate/java-filmorate/src/main/java/ru/yandex/practicum/filmorate/exceptions/UserDoesNotExistException.java
+/Users/natalia/Projects/9_Filmorate/java-filmorate/src/main/java/ru/yandex/practicum/filmorate/controllers/FilmController.java
+/Users/natalia/Projects/9_Filmorate/java-filmorate/src/main/java/ru/yandex/practicum/filmorate/exceptions/FilmDoesNotExistException.java
+/Users/natalia/Projects/9_Filmorate/java-filmorate/src/main/java/ru/yandex/practicum/filmorate/model/Film.java
+/Users/natalia/Projects/9_Filmorate/java-filmorate/src/main/java/ru/yandex/practicum/filmorate/validation/ReleaseDateConstraintValidator.java
+/Users/natalia/Projects/9_Filmorate/java-filmorate/src/main/java/ru/yandex/practicum/filmorate/model/User.java
+/Users/natalia/Projects/9_Filmorate/java-filmorate/src/main/java/ru/yandex/practicum/filmorate/FilmorateApplication.java
