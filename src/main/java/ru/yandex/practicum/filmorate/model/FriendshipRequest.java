@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 @RequiredArgsConstructor
 public class FriendshipRequest {
 
-    Long requestId; // id запроса на добавление в друзья
     @NotNull
     Long initiatorId; // id пользователя, отправившего запрос на добавление в друзья
     @NotNull

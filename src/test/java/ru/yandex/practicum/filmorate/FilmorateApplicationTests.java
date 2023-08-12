@@ -21,7 +21,7 @@ import ru.yandex.practicum.filmorate.controllers.UserController;
 import ru.yandex.practicum.filmorate.exceptions.FilmDoesNotExistException;
 import ru.yandex.practicum.filmorate.exceptions.UserDoesNotExistException;
 import ru.yandex.practicum.filmorate.model.Film;
-import ru.yandex.practicum.filmorate.model.Genres;
+import ru.yandex.practicum.filmorate.model.Genre;
 import ru.yandex.practicum.filmorate.model.RatingMPA;
 import ru.yandex.practicum.filmorate.model.User;
 import ru.yandex.practicum.filmorate.storage.InMemoryFilmStorage;
@@ -1547,7 +1547,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "All hate Cris", " Good comedy",
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
         final Integer id = film.getId();
         filmController.addFilm(film);
 
@@ -1579,7 +1579,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "All hate Cris", " Good comedy",
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
         final Integer id = film.getId();
         filmController.addFilm(film);
 
@@ -1587,7 +1587,7 @@ public class FilmorateApplicationTests {
 
         Film filmUpdated = new Film(1, "All like Tests", " Real comedy",
                 LocalDate.of(2023, 7, 19), 12000, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
         filmController.updateFilm(filmUpdated);
 
         //проверяем корректность обновления данных
@@ -1603,7 +1603,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(10000, "All hate Cris", " Good comedy",
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
         assertThrows(
                 FilmDoesNotExistException.class,
@@ -1620,12 +1620,12 @@ public class FilmorateApplicationTests {
 
         Film film1 = new Film(1, "All hate Cris", " Good comedy",
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
         filmController.addFilm(film1);
 
         Film film2 = new Film(1, "All like Tests", " Real comedy",
                 LocalDate.of(2023, 7, 19), 12000, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
         filmController.addFilm(film2);
 
         //получаем фильмы из списка
@@ -1641,7 +1641,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "All hate Cris", " Good comedy",
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
@@ -1654,7 +1654,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "", " Good comedy",
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
         assertFalse(violations.isEmpty(),
@@ -1674,7 +1674,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, " ", "Good comedy",
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
         assertFalse(violations.isEmpty(), "Пустое поле с названием фильма прошло валидацию");
@@ -1694,7 +1694,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, null, " Good comedy",
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
@@ -1721,7 +1721,7 @@ public class FilmorateApplicationTests {
                         + "it's too long description. it's too long description. it's too long description. "
                         + "it's too long description. it's too long description.",
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
@@ -1743,7 +1743,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "All hate Cris", null,
                 LocalDate.of(2002, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
 
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
@@ -1761,7 +1761,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "All hate Cris", " Good comedy",
                 LocalDate.of(1700, 2, 10), 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
@@ -1784,7 +1784,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "All hate Cris", "Good comedy",
                 null, 40, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
@@ -1807,7 +1807,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "All hate Cris", " Good comedy",
                 LocalDate.of(2002, 2, 10), (-900), 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
@@ -1830,7 +1830,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "All hate Cris", " Good comedy",
                 LocalDate.of(2002, 2, 10), 0, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
@@ -1854,7 +1854,7 @@ public class FilmorateApplicationTests {
 
         Film film = new Film(1, "All hate Cris", null,
                 LocalDate.of(2002, 2, 10), null, 0L,
-                RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)));
+                RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)));
 
         Set<ConstraintViolation<Film>> violations = validator.validate(film);
 
@@ -2124,13 +2124,13 @@ public class FilmorateApplicationTests {
 
                     Arguments.of(new Film(1, "", " Good comedy",
                                     LocalDate.of(2002, 2, 10), 40, 0L,
-                            RatingMPA.NC_17, Collections.singleton(Genres.COMEDY))),
+                            RatingMPA.NC_17, Collections.singleton(Genre.COMEDY))),
                     Arguments.of(new Film(1, " ", "Good comedy",
                             LocalDate.of(2002, 2, 10), 40, 0L,
-                            RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)))),
+                            RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)))),
                     Arguments.of(new Film(1, null, " Good comedy",
                             LocalDate.of(2002, 2, 10), 40, 0L,
-                                    RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)))),
+                                    RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)))),
 
                     // пустое или слишком длинное описание фильма
 
@@ -2141,28 +2141,28 @@ public class FilmorateApplicationTests {
                                     + "it's too long description. it's too long description. "
                                     + "it's too long description. it's too long description.",
                             LocalDate.of(2002, 2, 10), 40, 0L,
-                                    RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)))),
+                                    RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)))),
                     Arguments.of(new Film(1, "All hate Cris", null,
                             LocalDate.of(2002, 2, 10), 40, 0L,
-                                    RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)))),
+                                    RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)))),
 
                     // пустая или невалидная дата выхода фильма
 
                     Arguments.of(new Film(1, "All hate Cris", " Good comedy",
                             LocalDate.of(1700, 2, 10), 40, 0L,
-                                    RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)))),
+                                    RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)))),
                     Arguments.of(new Film(1, "All hate Cris", " Good comedy",
                             null, 40, 0L,
-                                    RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)))),
+                                    RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)))),
 
                     // негативное или нулевое значение продолжительности фильма
 
                     Arguments.of(new Film(1, "All hate Cris", " Good comedy",
                             LocalDate.of(2002, 2, 10), 0, 0L,
-                                    RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)))),
+                                    RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)))),
                     Arguments.of(new Film(1, "All hate Cris", " Good comedy",
                             LocalDate.of(2002, 2, 10), -900, 0L,
-                            RatingMPA.NC_17, Collections.singleton((Genres.COMEDY)))));
+                            RatingMPA.NC_17, Collections.singleton((Genre.COMEDY)))));
         }
     }
 

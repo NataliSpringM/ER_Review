@@ -40,6 +40,6 @@ public class Film {
 
     RatingMPA ratingMPA;
 
-    Set<Genres> genres;
+    Set<Genre> genres;
 
 }
